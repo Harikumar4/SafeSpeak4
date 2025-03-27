@@ -11,6 +11,16 @@ import groq
 from flask import Flask
 from flask_socketio import SocketIO, emit
 from flask_cors import CORS
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+
+
+if GROQ_API_KEY is None:
+    raise ValueError("GROQ_API_KEY is not set in the .env file!")
 
 # Configuration Constants
 MODEL_PATH = r"C:\Users\harik\OneDrive\Desktop\vosk-model-small-en-us-0.15"
@@ -19,7 +29,6 @@ FRAUD_OUTPUT_DIR = "fraud_analysis"
 AUDIO_OUTPUT_DIR = r"C:\Users\harik\OneDrive\Desktop\SafeSpeak-2\audio_segments"
 
 # Groq API Setup
-GROQ_API_KEY = "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"  # Replace with your actual key
 groq_client = groq.Client(api_key=GROQ_API_KEY)
 
 # Flask and SocketIO Setup

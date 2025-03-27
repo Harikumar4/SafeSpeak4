@@ -1,0 +1,15 @@
+torch
+torchaudio
+transformers
+librosa
+soundfile
+openai-whisper
+sounddevice
+numpy
+ctransformers
+pyannote.audio
+torchaudio
+transformers
+groq
+torch
+dotenv
